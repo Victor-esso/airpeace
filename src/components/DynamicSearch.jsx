@@ -27,6 +27,10 @@ const DynamicSearch = ({handleSubmittedData}) => {
       const [departureDate , setDepartureDate] = useState(null);
       const [returnDate , setReturnDate] = useState(null);
       const [flightClass , setFlightClass] = useState('economy');
+      const bookingId = useRef(null);
+      const bookingSurname = useRef(null);
+
+
 
       const [passengers , setPassengers] = useState({
               adult : 1,
@@ -123,6 +127,23 @@ const DynamicSearch = ({handleSubmittedData}) => {
           passengerCount : Object.values(passengers).reduce((acc, cur) => acc + cur, 0)
         })
 
+      }
+
+      const handleOtherFormSubmit = () => {
+        if (!bookingId.current.value) {
+            bookingId.current.focus();
+            return;
+        }
+
+        if (!bookingSurname.current.value) {
+            bookingSurname.current.focus();
+            return;
+        }
+
+        handleSubmittedData({
+          bookingId: bookingId.current.value,
+          surname : bookingSurname.current.value
+      })
       }
 
 
@@ -388,20 +409,20 @@ const DynamicSearch = ({handleSubmittedData}) => {
                       <motion.div variants={animations.fadeUp} className='vertical items-start w-full'>
                           <label htmlFor="searchInput" className='text-[15px] font-normal capitalize'>Booking ID</label>
                           <div className='w-full relative'>
-                              <input type="text" className='pe-[24px] w-full focus:outline-0   pb-1 text-xl font-normal border-b-[1px] border-gray-200 focus-visible:border-[#E4001C] peer' id='searchInput'/>
+                              <input ref={bookingId} type="text" className='pe-[24px] w-full focus:outline-0   pb-1 text-xl font-normal border-b-[1px] border-gray-200 focus-visible:border-[#E4001C] peer' id='searchInput'/>
                               <MaterialDesign.MdBookmarkAdded size={24} className="absolute abs-center-y right-0 text-gray-400/[.4] peer-focus:text-[#E4001C]" />
                           </div>
                       </motion.div>
                       <motion.div variants={animations.fadeUp} className='vertical items-start w-full'>
                           <label htmlFor="searchInput" className='text-[15px] font-normal capitalize'>Surname</label>
                           <div className='w-full relative'>
-                              <input type="text" className='pe-[24px] w-full focus:outline-0   pb-1 text-xl font-normal border-b-[1px] border-gray-200 focus-visible:border-[#E4001C] peer' id='searchInput'/>
+                              <input ref={bookingSurname} type="text" className='pe-[24px] w-full focus:outline-0   pb-1 text-xl font-normal border-b-[1px] border-gray-200 focus-visible:border-[#E4001C] peer' id='searchInput'/>
                               <MaterialDesign.MdPerson size={24} className="absolute abs-center-y right-0 text-gray-400/[.4] peer-focus:text-[#E4001C]" />
                           </div>
                       </motion.div>
                     </motion.div>
                     <motion.div  variants={animations.fadeUp} className="h-[120px] grid place-items-center">
-                        <button className="horizontal items-center gap-[8px] px-[18px] py-[16px] rounded-full border-[1px] border-black hover:bg-black   sm:text-black text-white bg-black sm:bg-white  group  transition duration-200">
+                        <button onClick={() => handleOtherFormSubmit()} className="horizontal items-center gap-[8px] px-[18px] py-[16px] rounded-full border-[1px] border-black hover:bg-black   sm:text-black text-white bg-black sm:bg-white  group  transition duration-200">
                           <MaterialDesign.MdOutlineSearch size={18} className="group-hover:text-white"/>
                           <span className="text-[14px] font-semibold uppercase group-hover:text-white">{currentTab == 'bookings' && 'find booking'}{currentTab == 'check-in' && 'proceed to checking'}</span>
                         </button>
