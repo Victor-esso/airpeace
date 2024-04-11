@@ -266,4 +266,8 @@ header + * {
 /* Remove outline for non-keyboard :focus */
 *:focus:not(.focus-visible) {
   outline: none;
+}
+
+#bookFlightContainer {
+  scroll-margin-top: 100px;
 }/*# sourceMappingURL=index.css.map */

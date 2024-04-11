@@ -131,7 +131,7 @@ const DynamicSearch = ({handleSubmittedData}) => {
 
   return (
     <>
-        <div className="w-full max-w-[474px] lg:max-w-[500px]  relative  px-6 mt-[183px] lg:mt-0 z-0">
+        <div className="w-full max-w-[474px] lg:max-w-[500px]  relative  px-6 mt-[183px] lg:mt-0 z-0" id='bookFlightContainer'>
               {/* Aeroplane image */}
               <img src={PlaneImage} alt="" className='absolute z-[-1] max-w-unset  rotate-[-12.05deg] | xl:top-[36%] lg:top-[50%] sm:top-[150px] top-[51px] | lg:translate-y-[-50%] lg:left-[-43%]  translate-y-[-100%]  sm:left-[-10%] sm:h-[492.73px] h-[273px] left-[18px]' />
 

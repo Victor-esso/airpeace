@@ -4,7 +4,7 @@ import UkLogo from "../assets/uk-icon.svg";
 
 import {GlobalContext} from "../providers/Global"
 import * as MaterialDesign from "react-icons/md";
-import { useContext, useEffect, useState,  } from "react";
+import { useContext, useEffect, useState, useRef  } from "react";
 
 import Certified from "../components/Certified";
 import DynamicSearch from "../components/DynamicSearch";
@@ -43,6 +43,14 @@ const Home = () => {
  },[submittedData])
 
 
+ const handleBookFlightBtn = () => {
+      if(windowWidth >= 1024 ) {return;}
+      const element = document.getElementById('bookFlightContainer');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+  };
 
 
 
@@ -50,7 +58,7 @@ const Home = () => {
     <>
       <div className="w-full min-h-lvh relative overflow-x-hidden lg:grid place-items-center lg:pb-0 pb-16 bg-[#2763AA] z-[1]" style={{ backgroundImage: `url(${BgSky})` }}>
 
-        <button className="flex flex-row items-center absolute abs-center-x top-[112px] bg-white/10 *:text-white p-[12px] pe-[16px] rounded-full md:w-[400px] w-[90%] justify-between group"> 
+        <button className="flex flex-row items-center absolute abs-center-x top-[112px] bg-white/10 *:text-white p-[12px] pe-[16px] rounded-full md:w-[400px] w-[90%] justify-between group "> 
           <span className="flex flex-row items-center gap-3">
             <img src={UkLogo} alt="" className="w-[24px]" />
             <div className="flex flex-col md:flex-row items-start text-[13px] md:gap-1">
@@ -67,17 +75,17 @@ const Home = () => {
 
         <div className=" my-auto container flex lg:flex-row lg:justify-between items-center lg:items-center flex-col mt-[150px] lg:mt-auto mx-auto py-0">
           {/* Left Side banner */}
-          <div className="*:text-white px-6 relative">
+          <div className="*:text-white px-6 relative z-[10]">
             <motion.div animate={{x:0,opacity:1,transition:{ease:"easeInOut", duration:.8,delay:.4 , bounce:.5, type: "spring"}}} initial={{x:-50,opacity:0}} className="vertical gap-[16px] lg:text-left sm:text-center text-left">
               <h1 className="text-fraunces w-full italic font-bold xl:text-[72px] lg:text-[64px] text-[48px] leading-[110%]">Fly the air with<br />peace of mind</h1>
               <p className="xl:text-[1.1rem] text-[16px] lg:leading-[24px] tracking-[5%]">A safe, efficient affordable and dependable partner for{windowWidth >= 460 ? <br/> : ' '}your domestic, regional and international flights.</p>
             </motion.div>
             {/* Book Flight Button */}
             <div className=" mt-[31px] w-full flex justify-start sm:justify-center lg:justify-start">
-              <motion.a animate={{y:0,opacity:1,transition:{ease:"easeInOut", duration:.5,delay:.7}}} initial={{y:-50,opacity:0}} href="#" className="flex items-center px-[24px] py-[20px] border-[2px] border-white w-max rounded-full uppercase font-semibold gap-[8px] text-[16px]">
+              <motion.button animate={{y:0,opacity:1,transition:{ease:"easeInOut", duration:.5,delay:.7}}} whileTap={{scale:.9}} initial={{y:-50,opacity:0}} onClick={handleBookFlightBtn} className="flex items-center px-[24px] py-[20px] border-[2px] border-white w-max rounded-full uppercase font-semibold gap-[8px] text-[16px] hover:bg-white hover:text-gray-800">
                 <MaterialDesign.MdOutlineEditCalendar size={24} />
               book your flight
-              </motion.a>
+              </motion.button>
             </div>
 
             {/* Certification logo Desktop */}
@@ -90,7 +98,8 @@ const Home = () => {
 
 
           {/* Right Side search flight */}
-          <DynamicSearch handleSubmittedData={setSubmittedData} />
+            <DynamicSearch handleSubmittedData={setSubmittedData} />
+          
           
         </div>
 

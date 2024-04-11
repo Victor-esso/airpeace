@@ -16,10 +16,11 @@ const Holdup = ({setSubmittedData = false}) => {
             <motion.h2 variants={animations.fadeUp} className="text-fraunces text-4xl italic font-bold mb-5">Hol’up!</motion.h2>
             <motion.p variants={animations.fadeUp} className="text-[#8CA3BA]">This is not the official site for AirPeace, visit <span className="text-black">flyairpeace.com</span> to get started</motion.p>
             <motion.div variants={animations.fadeUp} className='py-5 flex-center gap-2'>
+                {setSubmittedData && 
                     <motion.button whileTap={{scale:.9}} onClick={() =>(setSubmittedData) && setSubmittedData(null)} className="horizontal items-center gap-[4px] px-4 py-2 rounded-full hover:bg-[#F5F5F5] text-gray-600  group ">
                         <MaterialDesign.MdCancel size={24} className="group-hover:text-[#E4001C]"/>
                         <span className="text-[11px] font-semibold uppercase group-hover:text-black">Close</span>
-                    </motion.button>
+                    </motion.button>}
                     <motion.a whileTap={{scale:.9}} href="https://flyairpeace.com/" target="_blank" className="horizontal items-center gap-[8px] px-6 py-2 rounded-full border-[1px] border-black hover:bg-black group  sm:text-black text-white bg-black sm:bg-white">
                         <MaterialDesign.MdArrowOutward size={24} className="group-hover:text-white"/>
                         <span className="text-[14px] font-semibold uppercase group-hover:text-white">Visit</span>

@@ -318,3 +318,7 @@ header{
 *:focus:not(.focus-visible) {
     outline: none;
   }
+
+  #bookFlightContainer{
+    scroll-margin-top: 100px;
+  }
