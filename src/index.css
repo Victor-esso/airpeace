@@ -216,6 +216,25 @@
   .scrollbar-1::-webkit-scrollbar-thumb:hover {
     background: #E4001C;
   }
+  .scrollbar-0 {
+    /* width */
+    /* Track */
+    /* Handle */
+    /* Handle on hover */
+  }
+  .scrollbar-0::-webkit-scrollbar {
+    width: 0px;
+  }
+  .scrollbar-0::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+  }
+  .scrollbar-0::-webkit-scrollbar-thumb {
+    background: #E2E2E2;
+    border-radius: 25px;
+  }
+  .scrollbar-0::-webkit-scrollbar-thumb:hover {
+    background: #E4001C;
+  }
   .drop-down-divider > * {
     position: relative;
   }

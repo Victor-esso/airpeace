@@ -56,7 +56,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="w-full min-h-lvh relative overflow-x-hidden lg:grid place-items-center lg:pb-0 pb-16 bg-[#2763AA] z-[1]" style={{ backgroundImage: `url(${BgSky})` }}>
+      <div className="w-full min-h-lvh relative overflow-x-hidden  overflow-y-visible scrollbar-0 lg:grid place-items-center lg:pb-0 pb-16 bg-[#2763AA] z-[1]" style={{ backgroundImage: `url(${BgSky})` }}>
 
         <button className="flex flex-row items-center absolute abs-center-x top-[112px] bg-white/10 *:text-white p-[12px] pe-[16px] rounded-full md:w-[400px] w-[90%] justify-between group "> 
           <span className="flex flex-row items-center gap-3">
@@ -73,7 +73,7 @@ const Home = () => {
           <img src={PlaneImage} alt=""  /> 
         </div> */}
 
-        <div className=" my-auto container flex lg:flex-row lg:justify-between items-center lg:items-center flex-col mt-[150px] lg:mt-auto mx-auto py-0">
+        <div className="xl:my-[90px] scrollbar-0 my-auto container flex lg:flex-row lg:justify-between items-center lg:items-center flex-col mt-[150px]  mx-auto py-0">
           {/* Left Side banner */}
           <div className="*:text-white px-6 relative z-[10]">
             <motion.div animate={{x:0,opacity:1,transition:{ease:"easeInOut", duration:.8,delay:.4 , bounce:.5, type: "spring"}}} initial={{x:-50,opacity:0}} className="vertical gap-[16px] lg:text-left sm:text-center text-left">

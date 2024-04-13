@@ -257,6 +257,28 @@ $accent : #E4001C;
             background: $accent;
         }
     }
+    .scrollbar-0{
+        /* width */
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #ffffff00;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #E2E2E2;
+            border-radius: 25px;
+        }
+        
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: $accent;
+        }
+    }
     
     .drop-down-divider{
         >*{
