@@ -90,7 +90,7 @@ const Home = () => {
 
             {/* Certification logo Desktop */}
             {windowWidth >= 1024 && 
-              <div className=" w-max h-max mt-[200px]">
+              <div className=" w-max h-max 3xl:mt-[200px] lg:mt-[130px]">
                 <Certified />
               </div>
             }

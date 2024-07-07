@@ -15,7 +15,7 @@ $accent : #E4001C;
     }
 
     .vertical{
-        @apply flex flex-col;
+        @apply flex flex-col items-start;
     }
 
     .center-v{
@@ -54,7 +54,7 @@ $accent : #E4001C;
                     height: 60px;
                     width: 100%;
                     text-transform: uppercase;
-                    font-size: 14px;
+                    @apply text-sm 3xl:text-[14px] 2xl:text-[.83rem];
                     font-weight: 500;
                     display: flex;
                     align-items: center;
@@ -95,8 +95,8 @@ $accent : #E4001C;
                         height: 60px;
                         width: 100%;
                         text-transform: uppercase;
-                        font-size: 14px;
                         font-weight: 500;
+                        @apply text-sm 3xl:text-[14px] 2xl:text-[.83rem];
                         display: flex;
                         align-items: center;
                         justify-content: start;
@@ -222,15 +222,19 @@ $accent : #E4001C;
     .h-unset{
         height: unset;
     }
+
     .max-w-unset{
         max-width: unset;
     }
+
     .max-h-unset{
         max-height: unset;
     }
+
     .min-h-unset{
         min-height: unset;
     }
+    
     .min-w-unset{
         min-width: unset;
     }
@@ -343,4 +347,16 @@ header{
 
   #bookFlightContainer{
     scroll-margin-top: 100px;
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+        max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .container {
+        max-width: 1536px;
+    }
   }
